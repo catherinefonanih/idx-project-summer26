@@ -98,5 +98,6 @@ print('Sold Row Total After Concatenation:', len(sold))
 residential_sold = sold[sold.PropertyType == 'Residential']
 print('Sold Row Total After Residential Filter:', len(residential_sold))
 
+# save as csv files
 residential_listing.to_csv('idx_files/residential_listings.csv', index=False)
 residential_sold.to_csv('idx_files/residential_sold.csv', index=False)
