@@ -1,7 +1,7 @@
 import pandas as pd
 
-sold = pd.read_csv('idx_files/new_residential_sold.csv')
-listing = pd.read_csv('idx_files/new_residential_listings.csv')
+sold = pd.read_csv('idx_files/w1_residential_sold.csv')
+listing = pd.read_csv('idx_files/w1_residential_listings.csv')
 
 sold['PropertyType'].unique()
 listing['PropertyType'].unique()
