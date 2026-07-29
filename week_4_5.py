@@ -103,6 +103,31 @@ print('Out of California Coordinates Sum:', out_of_cal_flag_listings.sum())
 # Print New Row Total
 print('Row Total After Cleaning:', len(listings))
 
+print('-'*40)
+# Add school district mapping
+
+import geopandas as gpd
+
+district = gpd.read_file('idx_files/DistrictAreas.geojson')
+
+district = district[district.DistrictType == 'Unified']
+
+district = district.to_crs(epsg=4326)
+
+sold_gdf = gpd.GeoDataFrame(sold,geometry=gpd.points_from_xy(sold['Longitude'], sold['Latitude']), crs='EPSG:4326')
+
+listings_gdf = gpd.GeoDataFrame(listings, geometry=gpd.points_from_xy(listings['Longitude'], listings['Latitude']), crs='EPSG:4326')
+
+sold_joined = gpd.sjoin(sold_gdf, district[['DistrictName', 'geometry']], how='left', predicate='within')
+
+listings_joined = gpd.sjoin(listings_gdf, district[['DistrictName', 'geometry']], how='left', predicate='within')
+
+sold['UnifiedDistrictName'] = sold_joined['DistrictName']
+
+listings['UnifiedDistrictName'] = listings_joined['DistrictName']
+
+print('-'*40)
+
 # SAVE NEW DATASETS
 sold.to_csv('idx_files/w4_5_sold_cleaned.csv', index=False)
 listings.to_csv('idx_files/w4_5_listing_cleaned.csv', index=False)
