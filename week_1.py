@@ -31,6 +31,7 @@ listing27 = pd.read_csv('idx_files/CRMLSListing202603.csv')
 listing28 = pd.read_csv('idx_files/CRMLSListing202604.csv')
 listing29 = pd.read_csv('idx_files/CRMLSListing202605.csv', encoding='cp1252')
 listing30 = pd.read_csv('idx_files/CRMLSListing202606.csv', encoding='cp1252')
+listing31 = pd.read_csv('idx_files/CRMLSListing202607.csv', encoding='cp1252')
 
 
 # count and print rows before concatenation
@@ -85,6 +86,7 @@ sold27 = pd.read_csv('idx_files/CRMLSSold202603.csv')
 sold28 = pd.read_csv('idx_files/CRMLSSold202604.csv')
 sold29 = pd.read_csv('idx_files/CRMLSSold202605.csv', encoding = 'cp1252')
 sold30 = pd.read_csv('idx_files/CRMLSSold202606.csv', encoding='cp1252')
+sold31 = pd.read_csv('idx_files/CRMLSSold202607.csv', encoding='cp1252')
 
 # count and print rows before concatenation
 sold_rows = (len(sold01) + len(sold02) + len(sold03) + len(sold04) + len(sold05) + len(sold06) + len(sold07)
